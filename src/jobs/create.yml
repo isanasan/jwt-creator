@@ -1,0 +1,21 @@
+description: >
+  create jwt token
+
+executor: default
+
+parameters:
+  private-key-file:
+    type: string
+    description: "/path/to/your/privatekey.pem"
+  expires-in-seconds:
+    type: integer
+    default: 300
+    description: "expires in seconds"
+  issuer:
+    type: string
+    description: "issuer"
+steps:
+  - create:
+        private-key-file: <<parameters.private-key-file>>
+        expires-in-seconds: <<parameters.expires-in-seconds>>
+        issuer: <<parameters.issuer>>
